@@ -129,7 +129,14 @@
             btn.classList.add(index < 12 ? "green-button" : "yellow-button");
             btn.onclick = () => {
                 openModal(index);
-                const audioFile = index === 0 ? "batdau.m4a" : `sound${index + 1}.mp3`;
+                let audioFile;
+                if (index === 0) {
+                    audioFile = "batdau.m4a";
+                } else if (index === 1) {
+                    audioFile = "nguoidibo.m4a";
+                } else {
+                    audioFile = `sound${index + 1}.mp3`;
+                }
                 const audio = new Audio(audioFile);
                 audio.play();
             };
