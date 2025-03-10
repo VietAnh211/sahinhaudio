@@ -45,7 +45,7 @@
             transform: translate(-50%, -50%);
             background: white;
             padding: 30px;
-            width: 80%;
+            width: 50%;
             height: 85%;
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
             border-radius: 10px;
@@ -114,7 +114,7 @@
         };
 
         function openModal(index) {
-            document.getElementById("sub-buttons-left").innerHTML = subButtonNames[index]?.left?.map(name => `<button class='green-button'>${name}</button>`).join('') || '';
+            document.getElementById("sub-buttons-left").innerHTML = subButtonNames[index]?.left?.map(name => `<button class='green-button' onclick='playSound("${name}")'>${name}</button>`).join('') || '';
             document.getElementById("sub-buttons-right").innerHTML = subButtonNames[index]?.right?.map(name => `<button class='green-button'>${name}</button>`).join('') || '';
             document.getElementById("modal").style.display = "flex";
         }
@@ -123,22 +123,26 @@
             document.getElementById("modal").style.display = "none";
         }
 
+        function playSound(name) {
+            let audioFile;
+            if (name === "Tiếng Bingbong") {
+                audioFile = "bingbong.m4a";
+            } else if (name === "Tiếng tu") {
+                audioFile = "tiengtu.m4a";
+            }
+            if (audioFile) {
+                new Audio(audioFile).play();
+            }
+        }
+
         function createButton(name, index, column) {
             const btn = document.createElement("button");
             btn.textContent = name;
             btn.classList.add(index < 12 ? "green-button" : "yellow-button");
             btn.onclick = () => {
                 openModal(index);
-                let audioFile;
-                if (index === 0) {
-                    audioFile = "batdau.m4a";
-                } else if (index === 1) {
-                    audioFile = "nguoidibo.m4a";
-                } else {
-                    audioFile = `sound${index + 1}.mp3`;
-                }
-                const audio = new Audio(audioFile);
-                audio.play();
+                let audioFile = index === 0 ? "batdau.m4a" : index === 1 ? "nguoidibo.m4a" : `sound${index + 1}.mp3`;
+                new Audio(audioFile).play();
             };
             document.getElementById(column).appendChild(btn);
         }
