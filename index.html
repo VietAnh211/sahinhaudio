@@ -119,17 +119,19 @@
             document.getElementById("modal").style.display = "flex";
         }
 
+        function closeModal() {
+            document.getElementById("modal").style.display = "none";
+        }
+
         function createButton(name, index, column) {
             const btn = document.createElement("button");
             btn.textContent = name;
             btn.classList.add(index < 12 ? "green-button" : "yellow-button");
             btn.onclick = () => {
                 openModal(index);
-                setTimeout(() => {
-                    const audioFile = index === 0 ? "batdau.m4a" : `sound${index + 1}.mp3`;
-                    const audio = new Audio(audioFile);
-                    audio.play();
-                }, 300);
+                const audioFile = index === 0 ? "batdau.m4a" : `sound${index + 1}.mp3`;
+                const audio = new Audio(audioFile);
+                audio.play();
             };
             document.getElementById(column).appendChild(btn);
         }
