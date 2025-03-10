@@ -120,26 +120,15 @@
             9: { left: ["Tiếng Bingbong", "Tiếng Tu"], right: ["Bánh xe đè vạch","Quá 2 phút"] },
             10: { left: ["Tiếng báo khẩn cấp"], right: ["Không tuân thủ tình huống khẩn cấp"] },
             11: { left: ["Tiếng Bingbong"], right: ["Bánh xe đè vạch"] },
-            
         };
-
-        function openModal(index) {
-            if (!subButtonNames[index]) return;
-            document.getElementById("sub-buttons-left").innerHTML = subButtonNames[index].left.map(name => `<button class='green-button'>${name}</button>`).join('');
-            document.getElementById("sub-buttons-right").innerHTML = subButtonNames[index].right.map(name => `<button class='green-button'>${name}</button>`).join('');
-            document.getElementById("modal").style.display = "flex";
-        }
-
-        function closeModal() {
-            document.getElementById("modal").style.display = "none";
-        }
 
         function createButton(name, index, column) {
             const btn = document.createElement("button");
             btn.textContent = name;
             btn.classList.add(index < 12 ? "green-button" : "yellow-button");
             btn.onclick = () => {
-                const audio = new Audio(`sound${index + 1}.mp3`);
+                const audioFile = index === 0 ? "batdau.m4a" : `sound${index + 1}.mp3`;
+                const audio = new Audio(audioFile);
                 audio.play();
                 openModal(index);
             };
