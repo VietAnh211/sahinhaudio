@@ -130,7 +130,10 @@
                 const audioFile = index === 0 ? "batdau.m4a" : `sound${index + 1}.mp3`;
                 const audio = new Audio(audioFile);
                 audio.play();
-                openModal(index);
+                
+                if (subButtonNames[index]) {
+                    openModal(index);
+                }
             };
             document.getElementById(column).appendChild(btn);
         }
