@@ -104,7 +104,7 @@
             "Bắt đầu", "Dừng xe người đi bộ", "Khởi hành ngang dốc", "Vệt bánh xe - Đường vuông góc",
             "Qua ngã tư đèn giao thông", "Đường vòng quanh co", "Ghép dọc", "Đường tàu",
             "Tăng tốc", "Ghép ngang", "Tình Huống khẩn cấp", "Kết thúc",
-            "CHÚC MỪNG", "Bánh xe đè vạch", "Chết máy", "Bánh xe đè vạch"
+            "CHÚC MỪNG", "Bánh xe đè vạch", "Chết máy", "Bỏ bài"
         ];
 
         const subButtonNames = {
@@ -119,7 +119,7 @@
             8: { left: ["Tiếng Bingbong"], right: ["Tăng số sai", "Giảm số sai","Không đạt tốc độ"] },
             9: { left: ["Tiếng Bingbong", "Tiếng Tu"], right: ["Bánh xe đè vạch","Quá 2 phút"] },
             10: { left: ["Tiếng báo khẩn cấp"], right: ["Không tuân thủ tình huống khẩn cấp"] },
-            11: { left: ["Tiếng Bingbong"], right: ["Bánh xe đè vạch"] },
+            11: { left: ["Không bật xi nhan"], right: ["Bánh xe đè vạch"] },
         };
 
         function openModal(index) {
@@ -159,6 +159,8 @@
                        let audioFile = index === 2 ? "khoihanhngangdoc.m4a" : // Thay thế âm thanh cho nút này
                         index === 0 ? "batdau.m4a" :
                         index === 1 ? "nguoidibo.m4a" :
+                        index === 3 ? "vetbanhxe.m4a" :
+                        index === 4 ? "ngatu.m4a" :
                         `sound${index+1}.m4a`;  // Các nút khác giữ nguyên
                       new Audio(audioFile).play();
             };
