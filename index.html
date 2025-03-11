@@ -108,9 +108,18 @@
         ];
 
         const subButtonNames = {
-            0: { left: ["Tiếng Bingbong", "Tiếng tu"], right: ["Không thắt dây an toàn", "Không bật xi nhan"] },
+         0: { left: ["Tiếng Bingbong", "Tiếng tu"], right: ["Không thắt dây an toàn", "Không bật xi nhan"] },
             1: { left: ["Tiếng Bingbong", "Tiếng tu"], right: ["Dừng xe chưa đến vị trí", "Dừng xe quá vị trí", "Quá 20s","Quá 30s"] },
             2: { left: ["Tiếng Bingbong", "Tiếng tu"], right: ["Dừng xe chưa đến vị trí", "Dừng xe quá vị trí - Loại"] },
+            3: { left: ["Tiếng Bingbong"], right: ["Không đi qua vệt bánh xe - Loại", "Bánh xe đè vạch"] },
+            4: { left: ["Tiếng Bingbong"], right: ["Không dừng đèn đỏ", "Không bật xi nhan"] },
+            5: { left: ["Tiếng Bingbong"], right: ["Bánh xe đè vạch"] },
+            6: { left: ["Tiếng Bingbong", "Tiếng Tu"], right: ["Bánh xe đè vạch","Quá 2 phút"] },
+            7: { left: ["Tiếng Bingbong", "Tiếng tu"], right: ["Dừng xe chưa đến vị trí", "Dừng xe quá vị trí", "Quá 20s","Quá 30s"] },
+            8: { left: ["Tiếng Bingbong"], right: ["Tăng số sai", "Giảm số sai","Không đạt tốc độ"] },
+            9: { left: ["Tiếng Bingbong", "Tiếng Tu"], right: ["Bánh xe đè vạch","Quá 2 phút"] },
+            10: { left: ["Tiếng báo khẩn cấp"], right: ["Không tuân thủ tình huống khẩn cấp"] },
+            11: { left: ["Tiếng Bingbong"], right: ["Bánh xe đè vạch"] },
         };
 
         function openModal(index) {
@@ -141,8 +150,11 @@
             btn.classList.add(index < 12 ? "green-button" : "yellow-button");
             btn.onclick = () => {
                 openModal(index);
-                let audioFile = index === 0 ? "batdau.m4a" : index === 1 ? "nguoidibo.m4a" : `sound${index + 1}.mp3`;
-                new Audio(audioFile).play();
+                       let audioFile = index === 2 ? "audio/khoihanhngangdoc.m4a" : // Thay thế âm thanh cho nút này
+                        index === 0 ? "audio/batdau.m4a" :
+                        index === 1 ? "audio/nguoidibo.m4a" :
+                        `audio/sound${index}.m4a`;  // Các nút khác giữ nguyên
+                      new Audio(audioFile).play();
             };
             document.getElementById(column).appendChild(btn);
         }
