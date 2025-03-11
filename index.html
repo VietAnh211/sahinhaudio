@@ -150,10 +150,10 @@
             btn.classList.add(index < 12 ? "green-button" : "yellow-button");
             btn.onclick = () => {
                 openModal(index);
-                       let audioFile = index === 2 ? "audio/khoihanhngangdoc.m4a" : // Thay thế âm thanh cho nút này
-                        index === 0 ? "audio/batdau.m4a" :
-                        index === 1 ? "audio/nguoidibo.m4a" :
-                        `audio/sound${index}.m4a`;  // Các nút khác giữ nguyên
+                       let audioFile = index === 2 ? "khoihanhngangdoc.m4a" : // Thay thế âm thanh cho nút này
+                        index === 0 ? "batdau.m4a" :
+                        index === 1 ? "nguoidibo.m4a" :
+                        `sound${index+1}.m4a`;  // Các nút khác giữ nguyên
                       new Audio(audioFile).play();
             };
             document.getElementById(column).appendChild(btn);
