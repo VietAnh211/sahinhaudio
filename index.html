@@ -261,6 +261,8 @@
             if (audioFile) {
                 new Audio(audioFile).play();
             }
+          // **Thêm dòng này để trừ điểm nếu là lỗi**
+              deductPoints(name);
         }
 
         function createButton(name, index, column) {
