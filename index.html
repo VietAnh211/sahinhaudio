@@ -120,6 +120,9 @@
         </div>
         <button onclick="closeModal()">Đóng</button>
     </div>
+
+      <audio id="warning-sound" src="thitruot.m4a"></audio>
+  
     <script>
 
         let timerInterval; // Biến lưu ID của interval để cập nhật thời gian
@@ -130,8 +133,15 @@
       // Danh sách lỗi và số điểm bị trừ tương ứng
         const penaltyPoints = {
             "Bánh xe đè vạch": 5,
-            "Chết máy": 10,
-            "Bỏ bài": 25
+            "Chết máy": 5,
+            "Bỏ bài": 25,
+            "Không bật xi nhan": 5,
+            "Không tắt xi nhan": 5,
+            "Không thắt dây an toàn": 5,
+            "Dừng xe chưa đến vị trí": 5,
+            "Dừng xe quá vị trí": 5,
+            "Dừng xe quá vị trí - Loại": 25,
+            
         };
         // Cập nhật hiển thị thời gian
         function updateTimerDisplay() {
@@ -167,6 +177,18 @@
                 score -= penaltyPoints[error];
                 if (score < 0) score = 0;
                 updateScoreDisplay();
+                checkLowScore();
+            }
+        }
+
+        / Kiểm tra nếu điểm xuống dưới 80 thì phát âm thanh và dừng thời gian
+        function checkLowScore() {
+            if (score < 80 && !warningTriggered) {
+                warningTriggered = true;
+                setTimeout(() => {
+                    document.getElementById("warning-sound").play();
+                    stopTimer();
+                }, 3000);
             }
         }
 
