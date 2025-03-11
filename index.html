@@ -124,7 +124,7 @@
 
         function openModal(index) {
             document.getElementById("sub-buttons-left").innerHTML = subButtonNames[index]?.left?.map(name => `<button class='green-button' onclick='playSound("${name}")'>${name}</button>`).join('') || '';
-            document.getElementById("sub-buttons-right").innerHTML = subButtonNames[index]?.right?.map(name => `<button class='green-button'>${name}</button>`).join('') || '';
+            document.getElementById("sub-buttons-right").innerHTML = subButtonNames[index]?.right?.map(name => `<button class='green-button' onclick='playSound("${name}")'>${name}</button>`).join('') || '';
             document.getElementById("modal").style.display = "flex";
         }
 
