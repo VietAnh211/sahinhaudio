@@ -120,6 +120,7 @@
         </div>
         <button onclick="closeModal()">Đóng</button>
     </div>
+  <audio id="warning-sound" src="thitruot.m4a"></audio>
     <script>
         let timerInterval; // Biến lưu ID của interval để cập nhật thời gian
         let seconds = 0; // Biến lưu số giây đã trôi qua
@@ -177,7 +178,7 @@
             }
         }
 
-        / Kiểm tra nếu điểm xuống dưới 80 thì phát âm thanh và dừng thời gian
+        // Kiểm tra nếu điểm xuống dưới 80 thì phát âm thanh và dừng thời gian
         function checkLowScore() {
             if (score < 80 && !warningTriggered) {
                 warningTriggered = true;
@@ -198,7 +199,7 @@
         ];
 
         const subButtonNames = {
-         0: { left: ["Tiếng Bingbong", "Tiếng tu"], right: ["Không thắt dây an toàn", "Không bật xi nhan","Không tắt xi nhan"] },
+             0: { left: ["Tiếng Bingbong", "Tiếng tu"], right: ["Không thắt dây an toàn", "Không bật xi nhan","Không tắt xi nhan"] },
             1: { left: ["Tiếng Bingbong", "Tiếng tu"], right: ["Dừng xe chưa đến vị trí", "Dừng xe quá vị trí", "Quá 20s","Quá 30s"] },
             2: { left: ["Tiếng Bingbong", "Tiếng tu"], right: ["Dừng xe chưa đến vị trí", "Dừng xe quá vị trí - Loại"] },
             3: { left: ["Tiếng Bingbong"], right: ["Không đi qua vệt bánh xe - Loại", "Bánh xe đè vạch"] },
