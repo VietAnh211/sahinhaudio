@@ -81,6 +81,9 @@
 </head>
 <body>
     <h1>CHẤM ĐIỂM PHẦN THI TRONG HÌNH (Design by Việt Anh SMG)</h1>
+
+  <div id="timer">00:00</div>
+  
     <div class="container">
         <div class="column" id="left-column"></div>
         <div class="column" id="right-column"></div>
@@ -100,6 +103,29 @@
         <button onclick="closeModal()">Đóng</button>
     </div>
     <script>
+                    let timerInterval;
+        let seconds = 0;
+
+        function updateTimerDisplay() {
+            const minutes = Math.floor(seconds / 60).toString().padStart(2, '0');
+            const secs = (seconds % 60).toString().padStart(2, '0');
+            document.getElementById("timer").textContent = `${minutes}:${secs}`;
+        }
+
+        function startTimer() {
+            clearInterval(timerInterval);
+            seconds = 0;
+            updateTimerDisplay();
+            timerInterval = setInterval(() => {
+                seconds++;
+                updateTimerDisplay();
+            }, 1000);
+        }
+
+        function stopTimer() {
+            clearInterval(timerInterval);
+        }
+      
         const buttonNames = [
             "Bắt đầu", "Dừng xe người đi bộ", "Khởi hành ngang dốc", "Vệt bánh xe - Đường vuông góc",
             "Qua ngã tư đèn giao thông", "Đường vòng quanh co", "Ghép dọc", "Đường tàu",
@@ -176,6 +202,15 @@
             const btn = document.createElement("button");
             btn.textContent = name;
             btn.classList.add(index < 12 ? "green-button" : "yellow-button");
+
+btn.onclick = () => {
+                if (index === 0) startTimer(); // Nút Bắt đầu
+                if (index === 12) stopTimer(); // Nút CHÚC MỪNG
+            };
+            document.getElementById(column).appendChild(btn);
+
+
+          
             btn.onclick = () => {
                 openModal(index);
                        let audioFile = index === 2 ? "khoihanhngangdoc.m4a" : // Thay thế âm thanh cho nút này
