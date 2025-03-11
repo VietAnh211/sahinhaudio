@@ -118,7 +118,7 @@
             7: { left: ["Tiếng Bingbong", "Tiếng tu"], right: ["Dừng xe chưa đến vị trí", "Dừng xe quá vị trí", "Quá 20s","Quá 30s"] },
             8: { left: ["Tiếng Bingbong"], right: ["Tăng số sai", "Giảm số sai","Không đạt tốc độ"] },
             9: { left: ["Tiếng Bingbong", "Tiếng Tu"], right: ["Bánh xe đè vạch","Quá 2 phút"] },
-            10: { left: ["Tiếng báo khẩn cấp"], right: ["Không tuân thủ tình huống khẩn cấp"] },
+            10: { left: ["Tiếng tu"], right: ["Không tuân thủ tình huống khẩn cấp"] },
             11: { left: ["Không bật xi nhan"], right: ["Bánh xe đè vạch"] },
         };
 
@@ -147,7 +147,19 @@
             } else if (name === "Dừng xe chưa đến vị trí") {
         audioFile = "dungxechuadenvitri.m4a"; // Cập nhật âm thanh cho lỗi Không tắt xi nhan
             } else if (name === "Dừng xe quá vị trí") {
-        audioFile = "khongtatxinhan.m4a"; // Cập nhật âm thanh cho lỗi Không tắt xi nhan
+        audioFile = "dungxequavitri.m4a"; 
+            } else if (name === "Quá 20s") {
+        audioFile = "qua20s.m4a"; 
+            } else if (name === "Qua30s") {
+        audioFile = "qua30s.m4a"; 
+            } else if (name === "Dừng xe quá vị trí - Loại") {
+        audioFile = "dungxequa-loai.m4a";
+            } else if (name === "Không đi qua vệt bánh xe - Loại") {
+        audioFile = "khongquavetbanhxe.m4a"; 
+            } else if (name === "Bánh xe đè vạch") {
+        audioFile = "banhxedevach.m4a"; 
+            } else if (name === "Không tuân thủ tình huống khẩn cấp") {
+        audioFile = "khongtuanthukhancap.m4a"; 
             } 
             if (audioFile) {
                 new Audio(audioFile).play();
