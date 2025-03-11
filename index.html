@@ -203,14 +203,6 @@
             btn.textContent = name;
             btn.classList.add(index < 12 ? "green-button" : "yellow-button");
 
-btn.onclick = () => {
-                if (index === 0) startTimer(); // Nút Bắt đầu
-                if (index === 12) stopTimer(); // Nút CHÚC MỪNG
-            };
-          
-
-
-          
             btn.onclick = () => {
                 openModal(index);
                        let audioFile = index === 2 ? "khoihanhngangdoc.m4a" : // Thay thế âm thanh cho nút này
@@ -231,6 +223,10 @@ btn.onclick = () => {
                         index === 15 ? "bobai-loai.m4a" :
                         `sound${index+1}.m4a`;  // Các nút khác giữ nguyên
                       new Audio(audioFile).play();
+
+                 if (index === 0) startTimer(); // Nút Bắt đầu
+                if (index === 12) stopTimer(); // Nút CHÚC MỪNG
+              
             };
             document.getElementById(column).appendChild(btn);
         }
