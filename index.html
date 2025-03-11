@@ -271,7 +271,8 @@
                       new Audio(audioFile).play();
 
                  if (index === 0) startTimer(); // Nút Bắt đầu
-                if (index === 12) stopTimer(); // Nút CHÚC MỪNG
+                 if (index === 12) stopTimer(); // Nút CHÚC MỪNG
+                 deductPoints(name); // Kiểm tra xem có cần trừ điểm không
               
             };
             document.getElementById(column).appendChild(btn);
