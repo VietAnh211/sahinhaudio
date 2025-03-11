@@ -108,7 +108,7 @@
         ];
 
         const subButtonNames = {
-         0: { left: ["Tiếng Bingbong", "Tiếng tu"], right: ["Không thắt dây an toàn", "Không bật xi nhan"] },
+         0: { left: ["Tiếng Bingbong", "Tiếng tu"], right: ["Không thắt dây an toàn", "Không bật xi nhan","Không tắt xi nhan"] },
             1: { left: ["Tiếng Bingbong", "Tiếng tu"], right: ["Dừng xe chưa đến vị trí", "Dừng xe quá vị trí", "Quá 20s","Quá 30s"] },
             2: { left: ["Tiếng Bingbong", "Tiếng tu"], right: ["Dừng xe chưa đến vị trí", "Dừng xe quá vị trí - Loại"] },
             3: { left: ["Tiếng Bingbong"], right: ["Không đi qua vệt bánh xe - Loại", "Bánh xe đè vạch"] },
@@ -135,9 +135,15 @@
         function playSound(name) {
             let audioFile;
             if (name === "Tiếng Bingbong") {
-                audioFile = "bingbong.m4a";
+        audioFile = "bingbong.m4a"; // Âm thanh cho Tiếng Bingbong
             } else if (name === "Tiếng tu") {
-                audioFile = "tiengtu.m4a";
+        audioFile = "tiengtu.m4a"; // Âm thanh cho Tiếng tu
+            } else if (name === "Không thắt dây an toàn") {
+        audioFile = "khongthatdayantoan.m4a"; // Cập nhật âm thanh cho lỗi Không thắt dây an toàn
+            } else if (name === "Không bật xi nhan") {
+        audioFile = "khongbatxinan.m4a"; // Cập nhật âm thanh cho lỗi Không bật xi nhan
+            } else if (name === "Không tắt xi nhan") {
+        audioFile = "khongtatxinan.m4a"; // Cập nhật âm thanh cho lỗi Không tắt xi nhan
             }
             if (audioFile) {
                 new Audio(audioFile).play();
