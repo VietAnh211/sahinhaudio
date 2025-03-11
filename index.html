@@ -117,7 +117,7 @@
             6: { left: ["Tiếng Bingbong", "Tiếng tu"], right: ["Bánh xe đè vạch","Quá 2 phút"] },
             7: { left: ["Tiếng Bingbong", "Tiếng tu"], right: ["Dừng xe chưa đến vị trí", "Dừng xe quá vị trí", "Quá 20s","Quá 30s"] },
             8: { left: ["Tiếng Bingbong"], right: ["Tăng số sai", "Giảm số sai","Không đạt tốc độ"] },
-            9: { left: ["Tiếng Bingbong", "Tiếng Tu"], right: ["Bánh xe đè vạch","Quá 2 phút"] },
+            9: { left: ["Tiếng Bingbong", "Tiếng Tu"], right: ["Bánh xe đè vạch","Quá 2 phút","Ghép xe sai vị trí", "Bỏ bài"] },
             10: { left: ["Tiếng tu"], right: ["Không tuân thủ tình huống khẩn cấp"] },
             11: { left: ["Không bật xi nhan"], right: ["Bánh xe đè vạch"] },
         };
@@ -160,7 +160,13 @@
         audioFile = "banhxedevach.m4a"; 
             } else if (name === "Không tuân thủ tình huống khẩn cấp") {
         audioFile = "khongtuanthukhancap.m4a"; 
-            } 
+            } else if (name === "Không đạt tốc độ") {
+        audioFile = "khongdattocdo.m4a"; 
+            } else if (name === "Ghép xe sai vị trí") {
+        audioFile = "ghepxesai.m4a"; 
+            } else if (name === "Bỏ bài") {
+        audioFile = "bobai-loại.m4a"; 
+            }
             if (audioFile) {
                 new Audio(audioFile).play();
             }
