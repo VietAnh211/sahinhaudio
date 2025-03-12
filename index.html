@@ -120,7 +120,7 @@
         </div>
         <button onclick="closeModal()">Đóng</button>
     </div>
-  <audio id="warning-sound" src="thitruot.m4a"></audio>
+  
     <script>
         let timerInterval; // Biến lưu ID của interval để cập nhật thời gian
         let seconds = 0; // Biến lưu số giây đã trôi qua
@@ -178,7 +178,7 @@
                 checkLowScore();
             }
         }
-
+        <audio id="warning-sound" src="thitruot.m4a"></audio>
         // Kiểm tra nếu điểm xuống dưới 80 thì phát âm thanh và dừng thời gian
         function checkLowScore() {
             if (score < 80 && !warningTriggered) {
